@@ -1,32 +1,43 @@
-# Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
+############################################################## Book settings ###
 
-title: My sample book
-author: The Jupyter Book Community
+title: Welcome to [Chibli, Genet and Imperiale. Submitted.]'s demos!
+author: Nagham Chibli, Martin Genet, Sébastien Imperiale
 logo: logo.png
+copyright: "2025"
+only_build_toc_files: true
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+######################################################### Execution settings ###
+
 execute:
-  execute_notebooks: force
+  execute_notebooks: off
 
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
+############################################################# Parse settings ###
 
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - dollarmath
+  myst_dmath_double_inline: true # MG20230531: option is ignored, cf. https://github.com/executablebooks/jupyter-book/issues/1738
+    
+############################################################## HTML settings ###
 
-# Information about where the book exists on the web
-repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
-
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
   use_repository_button: true
+  use_issues_button: false
+
+############################################################# LaTeX settings ###
+
+latex:
+  latex_engine: pdflatex  # pdflatex, xelatex (recommended for unicode), luatex, platex, uplatex
+  use_jupyterbook_latex: true
+
+############################################################# Launch settings ###
+
+repository:
+  url: https://github.com/mgenet/Curl-Based-Reconstruction-Paper-Demos # MG20230527: Somehow only GitHub works, cf. https://github.com/orgs/executablebooks/discussions/1018
+  path_to_book: .
+  branch: master
+
+launch_buttons:
+  notebook_interface: classic # jupyterlab, classic
+  binderhub_url: https://mybinder.org
