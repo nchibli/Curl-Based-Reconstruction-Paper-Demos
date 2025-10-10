@@ -1,11 +1,13 @@
 import dolfin as df
 import numpy as np
 
-def noiseless_data_rec(
+def no_reg_rec(
         u, 
         mesh_params={},
         mat_params={},
-        load_params={}):
+        load_params={},
+        compute_prim=True,
+        prim=df.Constant(0)):
 
     Nx = mesh_params.get("Nx")
     Ny = mesh_params.get("Ny")
@@ -22,6 +24,7 @@ def noiseless_data_rec(
     S_22 = epsilon(u)[1, 1]
     S_12 = epsilon(u)[0, 1]
     S = (S_11-S_22)/S_12
+    tol = 1e-15
 
     mu = mat_params.get("mu", 2)
     rho = mat_params.get("rho", 1)
@@ -34,19 +37,21 @@ def noiseless_data_rec(
     u2=u[1]
     V_S = df.FunctionSpace(mesh, 'CG',degree)  
 
+    if compute_prim == True:
     ### Compute the antiderivative of $g$ with respect to $x_2$, denoted by $G$ in the article.
-    F = -rho * omega**2 * df.grad(u1 + f1)[1] + rho * omega**2 * df.grad(u2 + f2)[0] - 2*df.grad(df.grad(S_11 - S_22)[1])[0] - 2*df.grad(df.grad(S_12)[1])[1] + 2*df.grad(df.grad(S_12)[0])[0]
+        F = -rho * omega**2 * df.grad(u1 + f1)[1] + rho * omega**2 * df.grad(u2 + f2)[0] - 2*df.grad(df.grad(S_11 - S_22)[1])[0] - 2*df.grad(df.grad(S_12)[1])[1] + 2*df.grad(df.grad(S_12)[0])[0]
     
-    tol = 1e-15
-    def boundary(x, on_boundary):
-         return on_boundary and x[1]<tol 
-    bc = df.DirichletBC(V_S, df.Constant(0), boundary)
-    w1 = df.TrialFunction(V_S)
-    w1_test = df.TestFunction(V_S) 
-    a2 = df.grad(w1)[1] * w1_test * dx   
-    l2 = F * w1_test * dx
-    prim = df.Function(V_S)
-    df.solve(a2 == l2, prim, bc, solver_parameters={'linear_solver':'mumps'})
+        def boundary(x, on_boundary):
+            return on_boundary and x[1]<tol 
+        bc = df.DirichletBC(V_S, df.Constant(0), boundary)
+        w1 = df.TrialFunction(V_S)
+        w1_test = df.TestFunction(V_S) 
+        a2 = df.grad(w1)[1] * w1_test * dx   
+        l2 = F * w1_test * dx
+        prim = df.Function(V_S)
+        df.solve(a2 == l2, prim, bc, solver_parameters={'linear_solver':'mumps'})
+    else:
+        prim = prim    
     
     V_rot = df.VectorFunctionSpace(mesh, 'CG', degree-1)
     V_S1 = df.FunctionSpace(mesh, 'CG', degree-1) 
@@ -72,6 +77,6 @@ def noiseless_data_rec(
 
     mu_function = df.project(mu, V_S1)
     norm1_l2 = df.sqrt(df.assemble((mu_function - mu_function_rec)**2 * dx)) / df.sqrt(df.assemble(mu_function**2 * dx))
-    print('For noiseless data, the L2-norm for the reconstruction:', norm1_l2)
+    print('the L2-norm error for the reconstruction:', norm1_l2)
 
     return mu_function_rec, norm1_l2, prim
