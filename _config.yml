@@ -34,7 +34,7 @@ latex:
 ############################################################# Launch settings ###
 
 repository:
-  url: https://github.com/mgenet/Curl-Based-Reconstruction-Paper-Demos # MG20230527: Somehow only GitHub works, cf. https://github.com/orgs/executablebooks/discussions/1018
+  url: https://github.com/nchibli/Curl-Based-Reconstruction-Paper-Demos # MG20230527: Somehow only GitHub works, cf. https://github.com/orgs/executablebooks/discussions/1018
   path_to_book: .
   branch: master
 
