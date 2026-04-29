@@ -1,10 +1,10 @@
-# Welcome to [Chibli, Genet & Imperiale. Stability analysis of a new curl-based full field reconstruction method in 2D isotropic nearly-incompressible elasticity. Submitted.]'s demos!
+# Welcome to [Chibli, Genet & Imperiale (2026). Stability analysis of a new curl-based full field reconstruction method in 2D isotropic nearly-incompressible elasticity. Inverse Problems (In press).]'s demos!
 
-Static and interactive demos can be found at [https://mgenet.github.io/Curl-Based-Reconstruction-Paper-Demos](https://mgenet.github.io/Curl-Based-Reconstruction-Paper-Demos), or directly on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mgenet/Curl-Based-Reconstruction-Paper-Demos/master?urlpath=lab/tree/./demos).
+Static and interactive demos can be found at [https://nchibli.github.io/Curl-Based-Reconstruction-Paper-Demos](https://nchibli.github.io/Curl-Based-Reconstruction-Paper-Demos/), or directly on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nchibli/Curl-Based-Reconstruction-Paper-Demos/master?urlpath=lab/tree/./demos).
 
 ## Installation
 
-A working installation of **FEniCS** (version 2019.1.0, including the Dolfin Python interface) and **VTK** (including the Python interface) is required to run the code.  
+A working installation of **FEniCS** (version 2019.1.0, including the Dolfin Python interface) is required to run the code.  
 The simplest way to set up your system is using **Conda**:
 
 ```bash

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 authors:
   - family-names: Chibli
     given-names: Nagham
-    orcid: https://orcid.org/
+    orcid: https://orcid.org/0009-0008-4659-2626
 authors:
   - family-names: Genet
     given-names: Martin
@@ -12,4 +12,4 @@ authors:
     given-names: Sébastien
     orcid: https://orcid.org/0000-0001-5698-9653
 title: "Curl-Based Reconstruction Paper Demos"
-url: https://github.com/mgenet/Curl-Based-Reconstruction-Paper-Demos
+url: https://github.com/nchibli/Curl-Based-Reconstruction-Paper-Demos
