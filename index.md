@@ -1,6 +1,6 @@
 # Welcome to [Chibli, Genet & Imperiale (2026). Stability analysis of a new curl-based full field reconstruction method in 2D isotropic nearly-incompressible elasticity. Inverse Problems (In press).]'s demos!
 
-Demos can be browsed statically but also interactively—to start a session and run the code just click on the rocket icon at the top of a tutorial page and then click on "Binder", or directly click on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nchibli/Curl-Based-Reconstruction-Paper-Demos/master?urlpath=lab/tree/./demos).
+Demos can be browsed statically but also interactively—to start a session and run the code just click on the rocket icon at the top of a tutorial page and then click on "Binder", or directly click on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mgenet/Curl-Based-Reconstruction-Paper-Demos/master?urlpath=lab/tree/./demos).
 
 ## Local run via Docker
 
@@ -8,11 +8,11 @@ Because these demos are computationally intensive, Binder may run out of memory 
 - Ensure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running on your machine.
 - Pull the Image:
 ```bash
-docker pull ghcr.io/nchibli/curl-based-reconstruction-paper-demos:latest
+docker pull ghcr.io/mgenet/curl-based-reconstruction-paper-demos:latest
 ```
 - Start the Container:
 ```bash
-docker run -p 8888:8888 ghcr.io/nchibli/curl-based-reconstruction-paper-demos:latest
+docker run -p 8888:8888 ghcr.io/mgenet/curl-based-reconstruction-paper-demos:latest
 ```
 - Access the Notebooks: Look at your terminal output for a URL that starts with `http://127.0.0.1:8888/?token=...`, copy and paste that entire link into your web browser to access the demos.
 
@@ -22,7 +22,7 @@ You can also run the demos locally by setting up your system (might break at som
 - Ensure you have [Miniconda](https://docs.anaconda.com/free/miniconda) installed on your system, as well as [git](https://git-scm.com/install).
 - Clone the Repository:
 ```bash
-git clone https://github.com/nchibli/Curl-Based-Reconstruction-Paper-Demos.git
+git clone https://github.com/mgenet/Curl-Based-Reconstruction-Paper-Demos.git
 cd Curl-Based-Reconstruction-Paper-Demos
 ```
 - Create the conda environment:

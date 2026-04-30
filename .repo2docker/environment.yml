@@ -19,9 +19,9 @@ dependencies:
   - python=3.10.13
 
 # jupyter
-  - jupyter=1.0
-  - jupyterlab=3.6
-  - notebook=6.4
+  - jupyter=1.0.0
+  - jupyterlab=3.5.0
+  - notebook=6.4.12
 
 # computing stuff
   - fenics=2019.1.0

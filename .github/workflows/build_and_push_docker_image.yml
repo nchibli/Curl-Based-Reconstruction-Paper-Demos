@@ -3,7 +3,7 @@ on:
 
 jobs:
   build_and_push_docker_image:
-    if: false
+    if: true
     
     runs-on: ubuntu-latest
 
